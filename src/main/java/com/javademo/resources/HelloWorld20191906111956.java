@@ -35,24 +35,17 @@ public class HelloWorld20191906111956 {
         final String value = String.format(template, name.or(defaultName));
     }
 
+    public double add(int x, int y){
+            return (double) x+y;
+        }
+
     public Connection generateConnection(){
         //TODO: implement a connection method
         return null;
     }
 
-    public double add(int x, int y){
-        return (double) x+y;
-    }
-
     @GET
     public void TestSQLInjection(@QueryParam("userid") Optional<Integer> userId, @QueryParam("password") Optional<String> password){
-       Connection connection = generateConnection();
-       try{
-           String query = "SELECT * FROM users WHERE userid ='"+ userId.or(0) + "'" + " AND password='" + password.or("YAY") + "'";
-           Statement stmt = connection.createStatement();
-           ResultSet rs = stmt.executeQuery(query);
-       }catch(Exception ex){
-           ex.printStackTrace();
-       }
+       return;
     }
 }
