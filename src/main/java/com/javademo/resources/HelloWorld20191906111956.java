@@ -11,22 +11,16 @@ import javax.ws.rs.core.MediaType;
 import java.util.concurrent.atomic.AtomicLong;
 
 import java.sql.*;
-import java.util.Properties;
-import java.util.concurrent.Executor;
-import java.util.Map;
-
 
 @Path("/hello-world-20191906111956")
 @Produces(MediaType.APPLICATION_JSON)
 public class HelloWorld20191906111956 {
-    private final String template;
-    private final String defaultName;
-    private final AtomicLong counter;
+    private transient final String template;
+    private transient final String defaultName;
 
     public HelloWorld20191906111956(String template, String defaultName) {
         this.template = template;
         this.defaultName = defaultName;
-        this.counter = new AtomicLong();
     }
 
     @GET
