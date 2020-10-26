@@ -1,4 +1,5 @@
 # java-demo
+### This will trigger an error (1)
 ## A project used to showcase the java features of Codacy
 How to start the java-demo application
 ---
