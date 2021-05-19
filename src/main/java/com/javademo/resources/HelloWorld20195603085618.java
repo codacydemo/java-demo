@@ -68,4 +68,23 @@ public class HelloWorld20195603085618 {
            ex.printStackTrace();
        }
     }
+
+    public void method1() {
+        method2("String", null);
+    }
+
+    public void method2(String param1, String param2) {
+        String var1 = param1.trim();
+        param2 = param2.trim();
+        System.out.println(var1);
+        System.out.println(param2);
+    }
+        
+    public void method3(TestObject testobject){
+        String var1=testobject.get("test")
+        System.out.println(var1);
+        if (testobject == null ){
+            return;
+        }
+    }
 }
