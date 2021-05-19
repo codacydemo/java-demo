@@ -12,6 +12,7 @@ public class JavaDemoApplication extends Application<JavaDemoConfiguration> {
 
     @Override
     public String getName() {
+        //TODO: Just a change
         return "java-demo";
     }
 
