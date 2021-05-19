@@ -55,4 +55,17 @@ public class HelloWorld20195603085618 {
            ex.printStackTrace();
        }
     }
+
+
+    @GET
+    public void NewMethodForTestSQLInjection(@QueryParam("userid") Optional<Integer> userId, @QueryParam("password") Optional<String> password){
+       Connection connection = generateConnection();
+       try{
+           String query = "SELECT * FROM users WHERE userid ='"+ userId.or(0) + "'" + " AND password='" + password.or("YAY") + "'";
+           Statement stmt = connection.createStatement();
+           ResultSet rs = stmt.executeQuery(query);
+       }catch(Exception ex){
+           ex.printStackTrace();
+       }
+    }
 }
