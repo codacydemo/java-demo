@@ -80,11 +80,17 @@ public class HelloWorld20195603085618 {
         System.out.println(param2);
     }
         
-    public void method3(TestObject testobject){
-        String var1=testobject.get("test")
+    private void method3(TestObject testobject){
+        String var1=testobject.get("test");
         System.out.println(var1);
         if (testobject == null ){
             return;
         }
+    }
+
+    private class TestObject {
+     public String get(String yay){
+         return yay;
+     }   
     }
 }
