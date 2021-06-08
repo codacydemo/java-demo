@@ -55,4 +55,42 @@ public class HelloWorld20195603085618 {
            ex.printStackTrace();
        }
     }
+
+
+    @GET
+    public void NewMethodForTestSQLInjection(@QueryParam("userid") Optional<Integer> userId, @QueryParam("password") Optional<String> password){
+       Connection connection = generateConnection();
+       try{
+           String query = "SELECT * FROM users WHERE userid ='"+ userId.or(0) + "'" + " AND password='" + password.or("YAY") + "'";
+           Statement stmt = connection.createStatement();
+           ResultSet rs = stmt.executeQuery(query);
+       }catch(Exception ex){
+           ex.printStackTrace();
+       }
+    }
+
+    public void method1() {
+        method2("String", null);
+    }
+
+    public void method2(String param1, String param2) {
+        String var1 = param1.trim();
+        param2 = param2.trim();
+        System.out.println(var1);
+        System.out.println(param2);
+    }
+        
+    private void method3(TestObject testobject){
+        String var1=testobject.get("test");
+        System.out.println(var1);
+        if (testobject == null ){
+            return;
+        }
+    }
+
+    private class TestObject {
+     public String get(String yay){
+         return yay;
+     }   
+    }
 }
